@@ -1,9 +1,19 @@
+body,
+button,
+input,
+select {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   background-color: #e8e8f2;
   font-size: 1em;
-  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  padding-bottom: 9em;
 }
 
 nav {
@@ -25,6 +35,7 @@ button {
   border:none;
   padding: 0;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 a,
@@ -42,6 +53,12 @@ p {
   color: #999A9E;
 }
 
+button:disabled {
+  opacity: .5;
+  cursor: default;
+  pointer-events: none;
+}
+
 .user-card {
   padding: 2em;
 }
@@ -50,6 +67,24 @@ p {
   padding: 1em 2em;
   background-color: #fff;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.12);
+  margin-bottom: 0.5em;
+}
+
+.btn,
+.btn-cancel {
+  border-radius: 16px;
+  padding: 4px 16px;
+  background: #4979bb;
+  color: #fff;
+  width: 7em;
+}
+
+.btn-cancel {
+  background: #ec6060;
+}
+
+.btn-large {
+
 }
 
 .fl {
@@ -70,6 +105,10 @@ p {
 
 .mr-r {
   margin-right: 16px;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .icon-contacts:before {
@@ -100,6 +139,14 @@ p {
   background: url(../img/brain.svg);
 }
 
+.icon-flask:before {
+  background: url(../img/flask.svg);
+}
+
+.icon-idea:before {
+  background: url(../img/idea.svg);
+}
+
 [class^="icon-"]:before {
   content: '';
   width: 32px;
@@ -108,7 +155,6 @@ p {
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 
 .recess {
   position: absolute;
@@ -162,10 +208,23 @@ p {
   margin-right: 1em;
 }
 
+.icon-flask:before {
+  width: 48px;
+  height: 48px;
+  margin-right: 1em;
+}
+
+.icon-idea:before {
+  width: 48px;
+  height: 48px;
+  margin-right: 1em;
+}
+
 .stat-text {
   color: #444;
   font-size: 1.17em;
   font-weight: bold;
+  flex-grow: 1;
 }
 
 .stat-text:after {
@@ -173,4 +232,24 @@ p {
   color: #999A9E;
   display: block;
   font-size: 0.5em;
+}
+
+.progress-bar {
+  position: relative;
+  background: linear-gradient(to right, #ED8019 0% 50%, #FEEA00 50% 75%, #5C7AEC 75% 100%);
+  width: 100%;
+  height: 8px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.progress-bar:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 14px;
+  background: #666;
+  top: -3px;
+  left: 57%;
+  border-radius: 2px;
 }
