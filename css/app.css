@@ -10,6 +10,10 @@ body {
   min-height: 100vh;
   background-color: #e8e8f2;
   font-size: 1em;
+  -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 main {
@@ -57,6 +61,14 @@ button:disabled {
   opacity: .5;
   cursor: default;
   pointer-events: none;
+}
+
+hr {
+  border: 1px solid #D2D0D1;
+}
+
+hr[reverse] {
+  height: 100%;
 }
 
 .user-card {
@@ -194,12 +206,30 @@ button:disabled {
 }
 
 .account {
+  position: relative;
   width: 84px;
   height: 84px;
   background: url(../img/photo.png);
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 50%;
+}
+
+.account.small {
+  width: 48px;
+  height: 48px;
+}
+
+.account.status:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: #ED8019;
+  border-radius: 50%;
+  border: 2px solid #fff;
 }
 
 .icon-brain:before {
@@ -252,4 +282,19 @@ button:disabled {
   top: -3px;
   left: 57%;
   border-radius: 2px;
+}
+
+.card {
+  margin: 1em 2em;
+  padding: 1em;
+  background: #fff;
+  border-radius: 16px;
+}
+
+.username {
+  color: #999A9E;
+  margin-left: .5em;
+  margin-top: .5em;
+  font-size: 0.9em;
+  font-weight: 600;
 }
