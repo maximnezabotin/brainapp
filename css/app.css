@@ -17,7 +17,8 @@ body {
 }
 
 main {
-  padding-bottom: 9em;
+  padding-bottom: 6em;
+  box-sizing: border-box;
 }
 
 nav {
@@ -289,6 +290,7 @@ hr[reverse] {
   padding: 1em;
   background: #fff;
   border-radius: 16px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .username {
@@ -297,4 +299,64 @@ hr[reverse] {
   margin-top: .5em;
   font-size: 0.9em;
   font-weight: 600;
+}
+
+.controls {
+  margin: 4em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apply-btn {
+  background: linear-gradient(to right, #089CE4, #6276E6);
+  border-radius: 32px;
+  font-size: 0.9em;
+  color: #fff;
+  padding: 14px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.cancel-btn {
+  margin-top: 1.2em;
+  font-size: 1.3em;
+  color: #999A9E;
+  text-transform: uppercase;
+  padding: 8px 12px;
+}
+
+.counter-form {
+  display: flex;
+  align-items: center;
+}
+
+.counter {
+    color: #444;
+    width: 50%;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.counter:after {
+    content: attr(title);
+    color: #999A9E;
+    display: block;
+    font-size: 0.6em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+.progress-bar-cirle {
+
+}
+
+.progress-bar-cirle: before {
+  content: '';
+}
+
+.progress-bar-cirle:after {
+  content: '';
 }
