@@ -18,9 +18,25 @@
         <button class="icon-menu"></button>
       </div>
       <hr>
-      <div class="progress-bar-cirle"></div>
-      <div class="counter-form">
+      <div class="rating">
+        <svg class="progress-ring" width="120" height="120" style="
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        ">
+          <circle 
+            class="progress-ring__circle"
+            stroke="#646EB5" stroke-width="8"
+            stroke-linecap="round"
+            fill="transparent"></circle>
+        </svg>
+        <div class="score">12 254</div>
+      </div>
+      <div class="fl stats-counters">
         <div title="зданий" class="counter">7 547</div>
+        <hr reverse>
         <div title="место" class="counter">238</div>
       </div>
     </div>
@@ -35,5 +51,6 @@
     <a href="" class="icon-puzzle mr-l"></a>
     <a href="" class="icon-gear"></a>
   </nav>
+  <script src="js/app.js"></script>
 </body>
 </html>

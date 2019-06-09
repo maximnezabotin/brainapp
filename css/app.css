@@ -69,7 +69,7 @@ hr {
 }
 
 hr[reverse] {
-  height: 100%;
+  margin: 0;
 }
 
 .user-card {
@@ -349,8 +349,9 @@ hr[reverse] {
     margin-top: 8px;
 }
 
-.progress-bar-cirle {
-
+.stats-counters {
+    margin-left: -1em;
+    margin-right: -1em;
 }
 
 .progress-bar-cirle: before {
@@ -359,4 +360,52 @@ hr[reverse] {
 
 .progress-bar-cirle:after {
   content: '';
+}
+
+.rating {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating:before {
+  content: '';
+  display: block;
+  margin-top: 100%;
+  float: left;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #444;
+}
+
+.score:before {
+  content: 'мой рейтинг';
+}
+.score:after {
+  content: 'балла';
+}
+.score:before,
+.score:after {
+  text-transform: uppercase;
+  color: #999A9E;
+  font-size: 0.6em;
+  font-weight: 600;
+}
+
+.progress-ring {
+  
+}
+
+.progress-ring__circle {
+  transition: 0.7s stroke-dashoffset;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
 }
