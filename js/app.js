@@ -1,37 +1,19 @@
-let svgW = document.getElementsByTagName('svg')[0].clientWidth;
+const svg = document.querySelector('svg');
 const circle = document.querySelector('circle');
-circle.r.baseVal.value = svgW / 2 - 8;
-circle.cx.baseVal.value = svgW / 2;
-circle.cy.baseVal.value = svgW / 2;
-let radius = circle.r.baseVal.value;
-let circumference = radius * 2 * Math.PI;
+const path = document.querySelector('path');
+const PADDING = 8, START_ANGLE = 220, END_ANGLE = 430;
+resize();
 
-/*circle.style.strokeDasharray = `${circumference} ${circumference}`;
-circle.style.strokeDashoffset = `${circumference}`;*/
+function resize(e) {
+  const halfSVGW = svg.clientWidth / 2;
+  circle.r.baseVal.value = halfSVGW - PADDING;
+  circle.cx.baseVal.value = circle.cy.baseVal.value = halfSVGW;
 
-function setProgress(percent) {
-  /*const offset = circumference - percent / 100 * circumference;
-  circle.style.strokeDashoffset = offset;*/
-}
-
-setProgress(55);
-
-window.onresize = (e) => {
-  svgW = document.getElementsByTagName('svg')[0].clientWidth;
-  circle.r.baseVal.value = svgW / 2 - 8;
-  circle.cx.baseVal.value = svgW / 2;
-  circle.cy.baseVal.value = svgW / 2;
-  radius = circle.r.baseVal.value;
-  circumference = radius * 2 * Math.PI;
-
-  /*circle.style.strokeDasharray = `${circumference} ${circumference}`;
-  circle.style.strokeDashoffset = `${circumference}`;*/
-
-  setProgress(55);
+  path.setAttribute("d", describeArc(halfSVGW, halfSVGW, halfSVGW - PADDING, START_ANGLE, END_ANGLE));
 }
 
 function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-  var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+  const angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
 
   return {
     x: centerX + (radius * Math.cos(angleInRadians)),
@@ -40,20 +22,15 @@ function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 }
 
 function describeArc(x, y, radius, startAngle, endAngle){
+  const start = polarToCartesian(x, y, radius, endAngle);
+  const end = polarToCartesian(x, y, radius, startAngle);
+  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+  const d = [
+    'M', start.x, start.y, 
+    'A', radius, radius, 0, largeArcFlag, 0, end.x, end.y
+  ].join(" ");
 
-    var start = polarToCartesian(x, y, radius, endAngle);
-    var end = polarToCartesian(x, y, radius, startAngle);
-
-    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-
-    var d = [
-        "M", start.x, start.y, 
-        "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
-    ].join(" ");
-
-    return d;       
+  return d;       
 }
 
-window.onload = function() {
-  document.getElementById("arc1").setAttribute("d", describeArc(svgW / 2, svgW / 2, svgW / 2 - 8, 0, 200));
-};
+window.onresize = resize;

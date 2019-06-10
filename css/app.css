@@ -332,21 +332,21 @@ hr[reverse] {
 }
 
 .counter {
-    color: #444;
-    width: 50%;
-    text-align: center;
-    font-size: 1.6em;
-    font-weight: 600;
+  color: #444;
+  width: 50%;
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: 600;
 }
 
 .counter:after {
-    content: attr(title);
-    color: #999A9E;
-    display: block;
-    font-size: 0.6em;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-top: 8px;
+  content: attr(title);
+  color: #999A9E;
+  display: block;
+  font-size: 0.6em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 8px;
 }
 
 .stats-counters {
@@ -398,14 +398,4 @@ hr[reverse] {
   color: #999A9E;
   font-size: 0.6em;
   font-weight: 600;
-}
-
-.progress-ring {
-  
-}
-
-.progress-ring__circle {
-  transition: 0.7s stroke-dashoffset;
-  transform: rotate(90deg);
-  transform-origin: 50% 50%;
 }
