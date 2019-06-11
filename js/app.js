@@ -1,15 +1,23 @@
 const svg = document.querySelector('svg');
-const circle = document.querySelector('circle');
-const path = document.querySelector('path');
-const PADDING = 8, START_ANGLE = 220, END_ANGLE = 430;
+const circle1 = document.querySelector('#circle1');
+const circle2 = document.querySelector('#circle2');
+const path1 = document.querySelector('#arc1');
+const path2 = document.querySelector('#arc2');
+const PADDING_RAD = 10, START_ANGLE = 220, END_ANGLE = 430, PADDING = 16, PADDING_INNER = 20;
 resize();
 
 function resize(e) {
   const halfSVGW = svg.clientWidth / 2;
-  circle.r.baseVal.value = halfSVGW - PADDING;
-  circle.cx.baseVal.value = circle.cy.baseVal.value = halfSVGW;
+  circle1.r.baseVal.value = halfSVGW - PADDING_RAD - PADDING;
+  circle1.cx.baseVal.value = halfSVGW;
+  circle1.cy.baseVal.value = halfSVGW + PADDING / 2;
 
-  path.setAttribute("d", describeArc(halfSVGW, halfSVGW, halfSVGW - PADDING, START_ANGLE, END_ANGLE));
+  circle2.r.baseVal.value = halfSVGW - PADDING_RAD - PADDING - PADDING_INNER;
+  circle2.cx.baseVal.value = halfSVGW;
+  circle2.cy.baseVal.value = halfSVGW + PADDING / 2;
+
+  path1.setAttribute("d", describeArc(halfSVGW, halfSVGW + PADDING / 2, halfSVGW - PADDING_RAD - PADDING, START_ANGLE, END_ANGLE));
+  path2.setAttribute("d", describeArc(halfSVGW, halfSVGW + PADDING / 2, halfSVGW - PADDING_RAD - PADDING - PADDING_INNER, START_ANGLE, END_ANGLE));
 }
 
 function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
